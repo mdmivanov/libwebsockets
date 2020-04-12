@@ -28,8 +28,13 @@
 #include "private-lib-core.h"
 
 #include <sys/ioctl.h>
-#include <net/route.h>
 #include <net/if.h>
+
+#if defined(__ANDROID__)
+#include <net/route.h>
+#else
+#include "route.h"
+#endif
 
 #include <pwd.h>
 #include <grp.h>
